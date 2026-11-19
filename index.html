@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Restaurando iPhones e iPads com idevicerestore.">
+  <title>idevicerestore — Restaurar dispositivos Apple</title>
+  <style>
+    :root { --bg:#090d16; --panel:#111827; --text:#edf2ff; --muted:#a7b0c3; --accent:#63e6be; --line:#25304a; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:radial-gradient(circle at 80% 10%,#18334a 0,transparent 26rem),var(--bg); color:var(--text); }
+    a { color:inherit; }
+    .nav { max-width:1120px; margin:auto; height:78px; display:flex; align-items:center; justify-content:space-between; padding:0 24px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; }
+    .brand-mark { width:34px; height:34px; display:grid; place-items:center; border:1px solid var(--line); border-radius:10px; color:var(--accent); }
+    .nav-links { display:flex; gap:24px; align-items:center; }
+    .nav-links a { text-decoration:none; color:var(--muted); font-size:.95rem; }
+    .nav-links a:hover { color:white; }
+    .container { max-width:1120px; margin:auto; padding:0 24px; }
+    .hero { min-height:590px; display:grid; grid-template-columns:1.12fr .88fr; align-items:center; gap:48px; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.16em; font-size:.75rem; font-weight:800; }
+    h1 { margin:18px 0 20px; font-size:clamp(3rem,7vw,5.8rem); line-height:.94; letter-spacing:-.065em; }
+    h1 span { color:var(--accent); }
+    .lead { max-width:620px; color:var(--muted); font-size:1.16rem; line-height:1.75; }
+    .actions { display:flex; gap:12px; margin-top:30px; flex-wrap:wrap; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 20px; border-radius:10px; text-decoration:none; font-weight:800; border:1px solid var(--line); }
+    .button.primary { background:var(--accent); color:#092218; border-color:var(--accent); }
+    .button:hover { transform:translateY(-2px); }
+    .terminal { background:#070a10; border:1px solid var(--line); border-radius:16px; box-shadow:0 30px 80px #0008; overflow:hidden; }
+    .terminal-bar { height:46px; display:flex; align-items:center; gap:7px; padding:0 14px; border-bottom:1px solid var(--line); color:var(--muted); font-size:.8rem; }
+    .dot { width:9px; height:9px; border-radius:50%; background:#ff6b6b; }.dot:nth-child(2){background:#ffd43b}.dot:nth-child(3){background:#51cf66}
+    .terminal-title { margin-left:auto; }
+    pre { margin:0; padding:24px; min-height:280px; overflow:auto; color:#dbe7ff; font-size:.88rem; line-height:1.8; }
+    .green { color:var(--accent); }.blue { color:#74c0fc; }.yellow { color:#ffd43b; }
+    section { padding:90px 0; }
+    .section-title { max-width:650px; margin-bottom:38px; }
+    h2 { margin:10px 0 14px; font-size:clamp(2rem,5vw,3.6rem); letter-spacing:-.04em; }
+    .section-title p { color:var(--muted); line-height:1.7; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { padding:26px; min-height:190px; background:linear-gradient(145deg,#131b2b,#0d131f); border:1px solid var(--line); border-radius:14px; }
+    .card .num { color:var(--accent); font-weight:900; }.card h3 { margin:16px 0 10px; }.card p { color:var(--muted); line-height:1.65; }
+    .steps { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .step { display:flex; gap:16px; padding:20px; border-top:1px solid var(--line); }
+    .step code { color:var(--accent); background:#070a10; padding:14px; border-radius:8px; width:100%; overflow:auto; }
+    .warning { border:1px solid #7d5d20; background:#211a0e; border-radius:14px; padding:24px; color:#eacb88; line-height:1.7; }
+    footer { border-top:1px solid var(--line); padding:28px 24px; color:var(--muted); }
+    footer .container { display:flex; justify-content:space-between; gap:20px; }
+    @media (max-width:800px) { .nav-links a:not(.button){display:none}.hero{grid-template-columns:1fr;padding-top:50px}.grid,.steps{grid-template-columns:1fr}.terminal{margin-bottom:20px}footer .container{flex-direction:column} }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand"><span class="brand-mark">▣</span> idevicerestore</div>
+    <div class="nav-links"><a href="#recursos">Recursos</a><a href="#como-usar">Como usar</a><a class="button" href="https://github.com/libimobiledevice/idevicerestore" target="_blank" rel="noopener">GitHub</a></div>
+  </nav>
+
+  <main>
+    <div class="container hero">
+      <div>
+        <div class="eyebrow">Ferramenta oficial da comunidade</div>
+        <h1>Restaure seu<br><span>iDevice.</span></h1>
+        <p class="lead">idevicerestore é uma ferramenta de linha de comando que restaura sistemas operacionais da Apple em iPhones, iPads e iPods usando firmware oficial.</p>
+        <div class="actions"><a class="button primary" href="#como-usar">Começar agora</a><a class="button" href="https://github.com/libimobiledevice/idevicerestore" target="_blank" rel="noopener">Ver código-fonte</a></div>
+      </div>
+      <div class="terminal">
+        <div class="terminal-bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="terminal-title">terminal</span></div>
+        <pre><span class="green">$</span> idevicerestore iPhone.ipsw
+
+<span class="blue">INFO:</span> Encontrando dispositivo
+<span class="blue">INFO:</span> Dispositivo conectado
+<span class="blue">INFO:</span> Validando firmware...
+<span class="green">[100%]</span> Extrair Baseband
+<span class="green">[100%]</span> Restaurar sistema
+
+<span class="yellow">Restauração concluída.</span></pre>
+      </div>
+    </div>
+
+    <section id="recursos"><div class="container">
+      <div class="section-title"><div class="eyebrow">O que oferece</div><h2>Controle direto na linha de comando.</h2><p>Uma ferramenta pensada para diagnóstico, recuperação e restauração de dispositivos Apple.</p></div>
+      <div class="grid">
+        <article class="card"><span class="num">01</span><h3>Firmware IPSW</h3><p>Restaura dispositivos usando arquivos de firmware oficiais da Apple.</p></article>
+        <article class="card"><span class="num">02</span><h3>Modo de recuperação</h3><p>Ajuda a recuperar iPhones e iPads presos em estados inválidos ou incompletos.</p></article>
+        <article class="card"><span class="num">03</span><h3>Multiplataforma</h3><p>Use em ambientes Linux e macOS, além de sistemas compatíveis com o ecossistema libimobiledevice.</p></article>
+      </div>
+    </div></section>
+
+    <section id="como-usar"><div class="container">
+      <div class="section-title"><div class="eyebrow">Primeiros passos</div><h2>Instale e restaure.</h2></div>
+      <div class="steps">
+        <div><h3>1. Instale as dependências</h3><div class="step"><code>brew install idevicerestore</code></div></div>
+        <div><h3>2. Conecte o dispositivo</h3><div class="step"><code>idevice_id -l</code></div></div>
+        <div><h3>3. Execute a restauração</h3><div class="step"><code>idevicerestore arquivo.ipsw</code></div></div>
+        <div><h3>4. Verifique a ajuda</h3><div class="step"><code>idevicerestore --help</code></div></div>
+      </div>
+      <p style="margin-top:28px" class="warning"><strong>Atenção:</strong> a restauração pode apagar dados e exigir firmware compatível. Use apenas arquivos legítimos e confirme o modelo do dispositivo antes de continuar.</p>
+    </div></section>
+  </main>
+
+  <footer><div class="container"><span>© 2026 idevicerestore-site</span><span>Projeto comunitário não afiliado à Apple Inc.</span></div></footer>
+</body>
+</html>
